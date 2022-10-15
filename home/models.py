@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.safestring import mark_safe
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import AbstractUser
+from ckeditor.fields import RichTextField
 
 
 class Maqola(models.Model):
@@ -79,7 +80,7 @@ class Arxiv(models.Model):
 class Konferensiya(models.Model):
     title = models.TextField(max_length=1000)
     author = models.CharField(max_length=600, blank=True, null=True)
-    description = RichTextUploadingField()
+    description = RichTextField()
     doi_link = models.CharField(max_length=10000, null=True, blank=True)
     image = models.ImageField(upload_to='images/konferensiya/')
     pdf_file = models.FileField(upload_to='pdf/konferensiya/')
@@ -100,7 +101,7 @@ class Konferensiya(models.Model):
 class About(models.Model):
     title = models.TextField(max_length=1000)
     sub_title = models.TextField(max_length=1000, blank=True)
-    content = RichTextUploadingField()
+    content = RichTextField()
 
     class Meta:
         verbose_name = 'About'
@@ -110,7 +111,7 @@ class About(models.Model):
 class HozirgiSon(models.Model):
     title = models.TextField(max_length=1001)
     author = models.CharField(max_length=600, blank=True, null=True)
-    description = RichTextUploadingField()
+    description = RichTextField()
     doi_link = models.CharField(max_length=10000, null=True, blank=True)
     image = models.ImageField(upload_to='images/hozirgison/')
     pdf_file = models.FileField(upload_to='pdf/hozirgison/')
