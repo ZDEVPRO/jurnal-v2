@@ -1,0 +1,62 @@
+{% load static %}
+
+<div class="col-lg-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-12">
+            {% for rs in certificate %}
+                <div class="finance mb30 white_bg border-radious5 padding20 sm-mt30 sert-glav">
+                    <div class="heading">
+                        <h3 class="widget-title">{{ rs.title }}</h3>
+                    </div>
+                    <div class="single_post mb30 type18 d-md-none d-lg-block">
+                        <div class="post_img">
+                            <div class="img_wrap">
+                                <a href="#">
+                                    <img src="{{ rs.image.url }}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if information %}
+                <div class="finance mb30 white_bg border-radious5 padding20 sm-mt30 info-glav">
+                    <div class="heading info-heading">
+                        <h3 class="widget-title info-title">Malumot</h3>
+                    </div>
+                    <div class="single_post mb30 type18 d-md-none d-lg-block">
+                        <div class="post_img">
+                            <div class="img_wrap">
+                                <br>
+                                <ul class="information">
+                                    {% for rs in information %}
+                                        <li class="info-item"><a style="color: #1390fc" {% if rs.link %} href="{{ rs.link }}" {% endif %}>{{ rs.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if indexing %}
+                <div class="finance mb30 white_bg border-radious5 padding20 sm-mt30 index-glav">
+                    <div class="heading">
+                        <h3 class="widget-title">Indexing</h3>
+                    </div>
+                    <div class="single_post mb30 type18 d-md-none d-lg-block">
+                        <div class="post_img">
+                            {% for rs in indexing %}
+                            <div style="margin-top: 30px;" class="img_wrap">
+                                <a {% if rs.link %} href="{{ rs.link }}" {% endif %}>
+                                    <img src="{{ rs.image.url }}" alt="{{ rs.title }}">
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

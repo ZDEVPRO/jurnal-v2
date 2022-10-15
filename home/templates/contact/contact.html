@@ -1,0 +1,101 @@
+{% load static %}
+
+<!--::::: BCAKGROUND AREA START :::::::-->
+<div class="fifth_bg">
+    <!--::::: CONTACT FORM AREA START :::::::-->
+    <div class="contact_form">
+        <div class="container">
+            <div class="space-50"></div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="cotact_form">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>Biz Bilan Aloqa <br> Agar savollaringiz bo'lsa bizga yo'llang!</h3>
+                            </div>
+                            <div class="col-12">
+                                {% block succes_message %}{% include 'components/succes_message.html' %}{% endblock %}
+                                <form method="post" action="{% url 'contact' %}"> {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            {{ cform.first_name }}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{ cform.last_name }}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{ cform.email }}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{ cform.phone }}
+                                        </div>
+                                        <div class="col-12">
+                                            {{ cform.message }}
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="space-20"></div>
+                                            <input class="cbtn1" type="submit" value="Xabarni yuborish">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% block sidebar %}{% include 'components/sidebar.html' %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <!--::::: CONTACT FORM AREA END :::::::-->
+</div>
+<!--::::: BCAKGROUND AREA END :::::::-->
+
+<style>
+    .info-glav {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .sert-glav {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .index-glav {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .information .info-item {
+        position: relative;
+        display: block;
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        background-color: #fff;
+        padding: 10px 10px;
+        margin-bottom: -1px;
+    }
+
+    .info-item {
+        text-align: -webkit-match-parent;
+    }
+
+    .information {
+        list-style-type: disc;
+    }
+
+    .information .info-item {
+        border-width: 1px 0;
+        border-radius: 0;
+    }
+
+    .info-heading .info-title {
+        display: block;
+        margin: 0;
+        color: #333;
+        border-color: #ddd;
+        padding: 10px 15px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        font-weight: bold;
+        line-height: 1.1;
+    }
+</style>

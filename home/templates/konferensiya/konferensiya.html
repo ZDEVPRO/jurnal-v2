@@ -1,0 +1,104 @@
+{% load static %}
+
+<style>
+    .blank-button {
+        border: none;
+        padding: 10px;
+        background-color: #2e91fd;
+        color: white;
+        border-radius: 3px;
+        margin-right: 5px;
+    }
+
+    .blank-button:hover {
+        background-color: #005cbf;
+    }
+</style>
+
+<!--::::: TOTAL AREA START :::::::-->
+<div class="total3 mb30">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-8">
+                <div class="business3 padding20 white_bg border-radious5">
+                    <h4 class="widget-title">Konferensiya</h4>
+                    {% for rs in konferensiya %}
+                        <div class="single_post post_type12 type20">
+                            <div class="post_img border-radious5">
+                                <div class="img_wrap">
+                                    <a href="{{ rs.pdf_file.url }}">
+                                        <img src="{{ rs.image.url }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="single_post_text">
+                                <h4><a href="{{ rs.pdf_file.url }}">{{ rs.title }}</a>
+                                </h4>
+                                <div class="row">
+                                    <div class="col-6 align-self-center">
+                                        <div class="meta_col">
+                                            <p>{{ rs.create_date }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-right align-self-center">
+                                        <ul class="meta_share inline">
+                                            <li><a href="{{ rs.pdf_file.url }}" download="{{ rs.pdf_file }}"><i
+                                                    class="fa fa-download" aria-hidden="true"> Yuklab olish</i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <p class="post-p">{{ rs.description | safe }}</p>
+                                <hr>
+                                <p class="post-p">{{ rs.author }}</p>
+                                <hr>
+                                <a target="_blank" href="{{ rs.pdf_file.url }}"><button class="blank-button">PDF</button></a>
+                                <a target="_blank" href="{{ rs.doi_link }}"><button class="blank-button">DOI</button></a>
+                                <div class="space-15"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% block sidebar %}{% include 'components/sidebar.html' %}{% endblock %}
+        </div>
+    </div>
+</div>
+<!--::::: TOTAL AREA END :::::::-->
+
+<style>
+    .information .info-item {
+        position: relative;
+        display: block;
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        background-color: #fff;
+        padding: 10px 10px;
+        margin-bottom: -1px;
+    }
+
+    .info-item {
+        text-align: -webkit-match-parent;
+    }
+
+    .information {
+        list-style-type: disc;
+    }
+
+    .information .info-item {
+        border-width: 1px 0;
+        border-radius: 0;
+    }
+
+    .info-heading .info-title {
+        display: block;
+        margin: 0;
+        color: #333;
+        border-color: #ddd;
+        padding: 10px 15px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        font-weight: bold;
+        line-height: 1.1;
+    }
+</style>

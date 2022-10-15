@@ -1,0 +1,31 @@
+{% load static %}
+
+<!--::::: INNER TABLE AREA START :::::::-->
+<div class="inner_table shadow5 layout3 white_bg">
+    <div class="container">
+        <div class="space-50"></div>
+        <div class="space-50"></div>
+        <div class="row">
+            {% for rs in about %}
+                <div class="col-12">
+                    <div class="author_about">
+                        <div class="author_img">
+                            <div class="author_wrap">
+                                <img src="{% static 'assets/img/logo/12.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="author_content"><a>{{ rs.title }}</a>
+                            <div class="space-10"></div>
+                            <ul class="inline">
+                                <li>{{ rs.sub_title }}</li>
+                            </ul>
+                        </div>
+                        {{ rs.content | safe }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="space-50"></div>
+</div>
+<!--::::: INNER TABLE AREA END :::::::-->
